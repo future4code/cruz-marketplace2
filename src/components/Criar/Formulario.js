@@ -19,15 +19,15 @@ export default class Formulario extends React.Component{
                     <option value="aula">Aula</option>
                     <option value="domestico">Serviços Domésticos</option>
                     <option value="tecnologia">Design e Tecnologia </option>
-                    <option value="laranja">Laranja</option>
-                    <option value="limao">Limão</option>
+                    <option value="consultoria">Consultoria</option>
+                    <option value="lifestyle">Lifestyle</option>
                     <option value="eventos">Eventos </option>
                     <option value="obra">Obras e Reforma</option>
                 </select>
                 </label>
                 <label>
                     Descrição Base
-                        <input type="text" name="serviçoInput" 
+                        <input type="text" name="servicoInput" 
                         placeholder="Descrição do serviço"
                         />
                 </label>
@@ -39,7 +39,7 @@ export default class Formulario extends React.Component{
                 </label>
                 <label>
                     Prazo
-                    <input id="date" type="date"/>
+                    <input id="prazo" type="date"/>
                 </label>
                 <button> Cadastrar </button>
             </div>
