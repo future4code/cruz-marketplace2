@@ -26,13 +26,13 @@ const Cadastrar = styled.button `
     border-radius:10px;
     left:calc(50% - 75px);
     top:calc(50% - 25px);
-    background: linear-gradient(60deg, #EE5A24, #f37055);
+    background: linear-gradient(60deg, #16c153, #2ed573);
     cursor:pointer;
     line-height:12px;
     border:none;
     outline:none;
     &:hover{
-        background: linear-gradient(60deg, #fa8231,#f37055);
+        background: linear-gradient(60deg, #2ed573,#7bed9f);
     }
     margin-top:25px;
 `
@@ -50,7 +50,6 @@ const InputForm = styled.input`
     Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     width: 320px;
     height:32px;
-    /* padding-top:12vh; */
 `
 
 const SelectForm = styled.select`
