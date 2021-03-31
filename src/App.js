@@ -1,7 +1,7 @@
 import React from 'react'
 import AppContainer from './components/AppContainer'
 import Formulario from './components/Criar/Formulario'
-import Home from './components/Home'
+//import Home from './components/Home'
 // import { AppContainer } from './components/AppContainer'
 
 
@@ -10,7 +10,7 @@ export default class App extends React.Component{
 		return(
 			<div>
 				{/* <h1>Teste</h1> */}
-				<Home />
+				{/* <Home /> */}
 				<Formulario />
 			</div>
 		)
