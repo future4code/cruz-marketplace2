@@ -107,22 +107,22 @@ export default class Formulario extends React.Component{
         inputDescription:"", //Descriçao do serviço
         inputValue:"", //Valor a ser pago pelo serviço
         inputPayment:[], //Valor a ser pago pelo serviço
-        inputDueDate:"" //Prazo para execução do serviço - Formato de data
+        inputDueDate:"" //Prazo para execução do serviço - Formato de número/horas
     };
     handleInputTitle = (e) => {
-        this.setState({ inputTitulo: e.target.value });
+        this.setState({ inputTitle: e.target.value });
     };
     handleInputDescription = (e) => {
-        this.setState({ inputDescricao: e.target.value });
+        this.setState({ inputDescription: e.target.value });
     };
     handleInputValue = (e) => {
-        this.setState({ inputValor: Number(e.target.value) });
+        this.setState({ inputValue: Number(e.target.value) });
     };
     handleInputPayment = (e) => {
-        this.setState({ inputValor: Number(e.target.value) });
+        this.setState({ inputPayment: (e.target.value) });
     };
     handleInputDueDate = (e) => {
-        this.setState({ inputPrazo: Number(e.target.value) });
+        this.setState({ inputDueDate: Number(e.target.value) });
     };
     //--------------------------------Função Cadastrar Novo Serviço-----------------------------------
 
@@ -131,7 +131,7 @@ export default class Formulario extends React.Component{
         title: this.state.inputTitle,
         description: this.state.inputDescription,
         value: this.state.inputValue,
-        paymentMethods: this.tate.inputPayment,
+        paymentMethods: this.state.inputPayment,
         dueDate: this.state.inputDueDate,
     };
     
@@ -141,6 +141,7 @@ export default class Formulario extends React.Component{
     .then((res)=>{
         console.log(res)
         alert("Seu anúncio foi cadastrado com sucesso!")
+        this.setState({ inputTitle: "", inputDescription:"", inputValue:"", inputPayment:[], inputDueDate:"" });
     }).catch((err)=>{
         alert("Ocorrou alguma falha no seu cadastro :( Tente novamente ou entre em contato com a gente!")
         console.log(err)
@@ -158,8 +159,8 @@ export default class Formulario extends React.Component{
                         <SubTitulos>Título</SubTitulos>
                             <InputForm type="text" name="tituloInput" 
                             placeholder="Insira o nome do seu serviço"
-                            value={this.state.inputTit}
-                            onChange={this.handleInputTitulo}/>
+                            value={this.state.inputTitle}
+                            onChange={this.handleInputTitle}/>
                 </label>
 
                 <label>
@@ -173,7 +174,7 @@ export default class Formulario extends React.Component{
                 <label>
                         <SubTitulos>Valor do Serviço</SubTitulos>
                             <InputForm type="number" name="valorInput" 
-                            placeholder="Descrição do serviço"
+                            placeholder="Valor do serviço"
                             value={this.state.inputValue}
                             onChange={this.handleInputValue}/>
                 </label>
@@ -198,12 +199,12 @@ export default class Formulario extends React.Component{
                 </SelecaoPagamento>
                 
                 <label>
-                    <SubTitulos>Prazo</SubTitulos>
-                    <InputForm id="prazo" type="date"
+                    <SubTitulos>Prazo (em horas)</SubTitulos>
+                    <InputForm id="prazo" type="number"
                     value={this.state.inputDueDate}
-                    onChange={this.handleDueDate}/>
+                    onChange={this.handleInputDueDate}/>
                 </label>
-                <Cadastrar onClickBtn={this.cadastrarServico}> Cadastrar </Cadastrar>
+                <Cadastrar onClick={this.cadastrarServico}> Cadastrar </Cadastrar>
             </FormularioContainer>
         </BaseContainer>
         )
