@@ -1,6 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import styled from 'styled-components'
+import { baseUrl } from '../Base/Referecias'
 
 // ------------------------------------------Styled---------------------------------------------
 
@@ -83,32 +84,46 @@ const SubTitulos = styled.h4`
     width: 328px;
     color:#16c153;
 `
+const SelecaoPagamento = styled.div `
+    display:flex;
+    text-align:left;
+    justify-content:space-around;
+    flex-direction:column;
+    padding-left:-200px;
+`
+const Pagamento = styled.div `
+    display:flex;
+    position: relative;
+    left: -164px;
+    &:tr:nth-child(2n+1){
+        margin-left:10px;
+    }
+`
 
 // -------------------------------------------Structure---------------------------------------------
 export default class Formulario extends React.Component{
     state = {
-        inputTitulo: "", //Titulo do anúncio
-        inputCategorias:[], //Array de categorias de serviço
-        inputDescricao:"", //Descriçao do serviço
-        inputValor:"", //Valor a ser pago pelo serviço
-        inputPrazo:"" //Prazo para execução do serviço - Formato de data
+        inputTitle: "", //Titulo do anúncio
+        inputDescription:"", //Descriçao do serviço
+        inputValue:"", //Valor a ser pago pelo serviço
+        inputPayment:[], //Valor a ser pago pelo serviço
+        inputDueDate:"" //Prazo para execução do serviço - Formato de data
     };
-    handleInputTitulo = (e) => {
+    handleInputTitle = (e) => {
         this.setState({ inputTitulo: e.target.value });
     };
-    handleInputCategorias = (e) => {
-        this.setState({ inputCategorias: e.target.value });
-    };
-    handleInputDescricao = (e) => {
+    handleInputDescription = (e) => {
         this.setState({ inputDescricao: e.target.value });
     };
-    handleInputValor = (e) => {
+    handleInputValue = (e) => {
         this.setState({ inputValor: Number(e.target.value) });
     };
-    handleInputPrazo = (e) => {
+    handleInputPayment = (e) => {
+        this.setState({ inputValor: Number(e.target.value) });
+    };
+    handleInputDueDate = (e) => {
         this.setState({ inputPrazo: Number(e.target.value) });
     };
-
     //--------------------------------Função Cadastrar Novo Serviço-----------------------------------
 
     cadastrarServico = () => {
@@ -116,15 +131,23 @@ export default class Formulario extends React.Component{
         title: this.state.inputTitle,
         description: this.state.inputDescription,
         value: this.state.inputValue,
-        paymentMethods: [],
+        paymentMethods: this.tate.inputPayment,
         dueDate: this.state.inputDueDate,
     };
+    
+    // ---------------------------------------------Axios//API-----------------------------------------
+    axios
+    .post(baseUrl,body)
+    .then((res)=>{
+        console.log(res)
+        alert("Seu anúncio foi cadastrado com sucesso!")
+    }).catch((err)=>{
+        alert("Ocorrou alguma falha no seu cadastro :( Tente novamente ou entre em contato com a gente!")
+        console.log(err)
+    })
     }
 
-    // ---------------------------------------------Axios//API-----------------------------------------
-
-    // axios	
-
+// ---------------------------------------------Estrutura-----------------------------------------
     render(){
         return(
             <BaseContainer>
@@ -155,19 +178,24 @@ export default class Formulario extends React.Component{
                             onChange={this.handleInputValue}/>
                 </label>
                 
-                <SubTitulos>Método de pagamento</SubTitulos>
-                <div>
+                <SubTitulos>Método de Pagamento</SubTitulos>
+
+                <SelecaoPagamento >
+                <Pagamento>
                     <label>Dinheiro <input type="radio" id="dinheiro" value="dinheiro"/></label>
                     <label>Crédito <input type="radio" id="credito" value="credito"/></label>
-                </div>
-                <div>
+                </Pagamento>
+
+                <Pagamento>
                     <label>Débito <input type="radio" id="débito" value="débito"/></label>
                     <label>Boleto <input type="radio" id="boleto" value="boleto"/></label>
-                </div>
-                <div>
+                </Pagamento>
+
+                <Pagamento>
                     <label>Transferência <input type="radio" id="transferencia" value="transferencia"/></label>
                     <label>Pix <input type="radio" id="pix" value="pix"/></label>
-                </div>
+                </Pagamento>
+                </SelecaoPagamento>
                 
                 <label>
                     <SubTitulos>Prazo</SubTitulos>
