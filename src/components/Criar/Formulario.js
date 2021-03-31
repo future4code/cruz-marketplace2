@@ -44,6 +44,12 @@ const Title = styled.h1 `
     padding-left:8vw;
 `
 
+const InputForm = styled.input`
+    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', 
+    Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    
+`
+
 
 
 
@@ -60,10 +66,10 @@ const Title = styled.h1 `
 export default class Formulario extends React.Component{
     state = {
         inputTitulo: "", //Titulo do anúncio
-        inputCategorias=[], //Array de categorias de serviço
-        inputDescricao="", //Descriçao do serviço
-        inputValor="", //Valor a ser pago pelo serviço
-        inputPrazo="", //Prazo para execução do serviço - Formato de data
+        inputCategorias:[], //Array de categorias de serviço
+        inputDescricao:"", //Descriçao do serviço
+        inputValor:"", //Valor a ser pago pelo serviço
+        inputPrazo:"" //Prazo para execução do serviço - Formato de data
     };
     handleInputTitulo = (e) => {
         this.setState({ inputTitulo: e.target.value });
@@ -103,13 +109,13 @@ export default class Formulario extends React.Component{
             <Title>Novo Anúncio</Title>
             <div></div>
             <FormularioContainer>
-                <label className>
+                {/* <label className = > */}
                     Título
                         <input type="text" name="tituloInput" 
                         placeholder="Insira o nome do seu serviço"
                         value={this.state.inputTitulo}
                         onChange={this.handleInputTitulo}/>
-                </label>
+                {/* </label> */}
                 <label>
                     Categorias
                 <select value={this.state.inputCategorias} onChange={this.handleInputCategorias}>
