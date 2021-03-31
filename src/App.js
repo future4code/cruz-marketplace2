@@ -7,7 +7,7 @@ export default class App extends React.Component{
 	render(){
 		return(
 			<div>
-				<h1>Teste</h1>
+				{/* <h1>Teste</h1> */}
 				<Formulario />
 			</div>
 		)
