@@ -49,7 +49,7 @@ export default class ExibirTrabalhos extends React.Component {
 
       <CartaoTrabalho 
       key={job.id}
-      cartaoFoto='https://picsum.photos/199/249'
+      cartaoFoto='https://rollingstone.uol.com.br/media/_versions/village_people_michael_putland_getty_widelg.jpg'
       cartaoNome={job.title}
       cartaoPreco={job.value}
       cartaoDescricao={job.description}
