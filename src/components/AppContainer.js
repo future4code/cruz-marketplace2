@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import ExibirTrabalhos from '../telas/ExibirTrabalhos'
+import ExibirTrabalhos from './Exibir/ExibirTrabalhos'
 
 export default class AppContainer extends React.Component {
   render() {

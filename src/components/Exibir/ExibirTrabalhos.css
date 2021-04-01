@@ -1,0 +1,19 @@
+
+
+
+.exibir-filtros {
+    padding: 30px;
+}
+
+.exibir-inputs {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    
+}
+
+.exibir-grade-cartoes{
+    display: flex;
+    flex-flow: row wrap;
+    
+}
