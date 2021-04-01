@@ -2,6 +2,7 @@ import React from 'react'
 import CartaoTrabalho from './CartaoTrabalho'
 import './ExibirTrabalhos.css'
 import axios from 'axios'
+import { api, img } from './constantes/API'
 
 export default class ExibirTrabalhos extends React.Component {
 
@@ -18,7 +19,7 @@ export default class ExibirTrabalhos extends React.Component {
   getApiData = () => {
     axios
     .get(
-        'https://us-central1-labenu-apis.cloudfunctions.net/futureNinjasThree/jobs',
+        api,
     //     {
     //         headers: {
     //             Authorization: 'marcos-maia'
@@ -48,7 +49,7 @@ export default class ExibirTrabalhos extends React.Component {
 
       <CartaoTrabalho 
       key={job.id}
-      cartaoFoto='https://conselhonacionaldosesi.org.br/wp-content/uploads/2018/01/icone-trabalhador-da-construcao-570-181217.jpg'
+      cartaoFoto={img}
       cartaoNome={job.title}
       cartaoPreco={job.value}
       cartaoDescricao={job.description}
