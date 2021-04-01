@@ -64,7 +64,7 @@ export default class ExibirTrabalhos extends React.Component {
       // </div>
     )) 
 
-          
+        
     return (
       <div>
 
