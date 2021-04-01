@@ -1,6 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import styled from 'styled-components'
+import { baseUrl } from '../Base/Referecias'
 
 // ------------------------------------------Styled---------------------------------------------
 
@@ -8,13 +9,12 @@ const BaseContainer = styled.div `
     display:flex;
     justify-content:center;
     flex-direction:column;
-    padding-top:12vh;
+    padding-top:8vh;
 `
 const FormularioContainer = styled.div `
     display:flex;
     justify-content:center;
     flex-direction:column;
-    /* padding-top:12vh; */
     align-items:flex-end;
     padding-right:8vw;
 `
@@ -26,13 +26,13 @@ const Cadastrar = styled.button `
     border-radius:10px;
     left:calc(50% - 75px);
     top:calc(50% - 25px);
-    background: linear-gradient(60deg, #EE5A24, #f37055);
+    background: linear-gradient(60deg, #16c153, #2ed573);
     cursor:pointer;
     line-height:12px;
     border:none;
     outline:none;
     &:hover{
-        background: linear-gradient(60deg, #fa8231,#f37055);
+        background: linear-gradient(60deg, #2ed573,#7bed9f);
     }
     margin-top:25px;
 `
@@ -50,7 +50,9 @@ const InputForm = styled.input`
     Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     width: 320px;
     height:32px;
-    /* padding-top:12vh; */
+    outline:none;
+    border-radius:5px;
+    border-bottom-color:#3c3c3c;
 `
 
 const SelectForm = styled.select`
@@ -59,6 +61,9 @@ const SelectForm = styled.select`
     width: 328px;
     height:36px;
     margin-bottom:8px;
+    color:#3c3c3c;
+    outline:none;
+    border-radius:5px;
 `
 const InputServico = styled(InputForm)`
     font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', 
@@ -68,6 +73,10 @@ const InputServico = styled(InputForm)`
     word-wrap: break-word;
     word-break: break-all;
     margin-bottom:8px;
+    outline:none;
+    color:#3c3c3c;
+    border-radius:5px;
+
 `
 const SubTitulos = styled.h4`
     font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', 
@@ -75,62 +84,76 @@ const SubTitulos = styled.h4`
     width: 328px;
     color:#16c153;
 `
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+const SelecaoPagamento = styled.div `
+    display:flex;
+    text-align:left;
+    justify-content:space-around;
+    flex-direction:column;
+    padding-left:-200px;
+`
+// const Pagamento = styled.div `
+//     display:flex;
+//     position: relative;
+//     left: -164px;
+//     &:tr:nth-child(2n+1){
+//         margin-left:10px;
+//     }
+// `
 
 // -------------------------------------------Structure---------------------------------------------
 export default class Formulario extends React.Component{
     state = {
-        inputTitulo: "", //Titulo do anúncio
-        inputCategorias:[], //Array de categorias de serviço
-        inputDescricao:"", //Descriçao do serviço
-        inputValor:"", //Valor a ser pago pelo serviço
-        inputPrazo:"" //Prazo para execução do serviço - Formato de data
+        inputTitle: "", //Titulo do anúncio
+        inputDescription:"", //Descriçao do serviço
+        inputValue:"", //Valor a ser pago pelo serviço
+        inputPayment:[], //Valor a ser pago pelo serviço
+        inputDueDate:"", //Prazo para execução do serviço - Formato de número/horas
+        // inputOnChangeValue :""
     };
-    handleInputTitulo = (e) => {
-        this.setState({ inputTitulo: e.target.value });
+    handleInputTitle = (e) => {
+        this.setState({ inputTitle: e.target.value });
     };
-    handleInputCategorias = (e) => {
-        this.setState({ inputCategorias: e.target.value });
+    handleInputDescription = (e) => {
+        this.setState({ inputDescription: e.target.value });
     };
-    handleInputDescricao = (e) => {
-        this.setState({ inputDescricao: e.target.value });
+    handleInputValue = (e) => {
+        this.setState({ inputValue: Number(e.target.value) });
     };
-    handleInputValor = (e) => {
-        this.setState({ inputValor: Number(e.target.value) });
+    handleInputPayment = (e) => {
+        let pagamento = this.state.inputPayment.push(e.target.value);
+        this.setState({ inputPayment: this.pagamento });
     };
-    handleInputPrazo = (e) => {
-        this.setState({ inputPrazo: Number(e.target.value) });
+    // handleOnChangeValue(e) {
+    //     this.setState({ inputOnChangeValue: (e.target.value) });
+    // };
+    handleInputDueDate = (e) => {
+        this.setState({ inputDueDate: Number(e.target.value) });
     };
-
     //--------------------------------Função Cadastrar Novo Serviço-----------------------------------
 
     cadastrarServico = () => {
-    const registrar = {
-        titulo: this.state.inputTitulo,
-        categorias: this.state.inputCategorias,
-        descricao: this.state.inputDescricao,
-        valor: this.state.inputValor,
-        prazo: this.state.inputPrazo,
+    const body = {
+        title: this.state.inputTitle,
+        description: this.state.inputDescription,
+        value: this.state.inputValue,
+        paymentMethods: this.state.inputPayment,
+        dueDate: this.state.inputDueDate,
     };
+    
+    // ---------------------------------------------Axios//API-----------------------------------------
+    axios
+    .post(baseUrl,body)
+    .then((res)=>{
+        console.log(res)
+        alert("Seu anúncio foi cadastrado com sucesso!")
+        this.setState({ inputTitle: "", inputDescription:"", inputValue:"", inputPayment:["card"], inputDueDate:"" });
+    }).catch((err)=>{
+        alert("Ocorrou alguma falha no seu cadastro :( Tente novamente ou entre em contato com a gente!")
+        console.log(err)
+    })
     }
 
-    // ---------------------------------------------Axios//API-----------------------------------------
-    //
-    //
-
+// ---------------------------------------------Estrutura-----------------------------------------
     render(){
         return(
             <BaseContainer>
@@ -141,46 +164,58 @@ export default class Formulario extends React.Component{
                         <SubTitulos>Título</SubTitulos>
                             <InputForm type="text" name="tituloInput" 
                             placeholder="Insira o nome do seu serviço"
-                            value={this.state.inputTitulo}
-                            onChange={this.handleInputTitulo}/>
-                </label>
-
-                <label>
-                    <SubTitulos>Categorias</SubTitulos>
-                        <SelectForm value={this.state.inputCategorias} onChange={this.handleInputCategorias}>
-                            <option value="tecnica">Assistência Técnica</option>
-                            <option value="aula">Aula</option>
-                            <option value="consultoria">Consultoria</option>
-                            <option value="tecnologia">Design e Tecnologia </option>
-                            <option value="eventos">Eventos </option>
-                            <option value="lifestyle">Lifestyle</option>
-                            <option value="obra">Obras e Reforma</option>
-                            <option value="domestico">Serviços Domésticos</option>
-                        </SelectForm>
+                            value={this.state.inputTitle}
+                            onChange={this.handleInputTitle}/>
                 </label>
 
                 <label>
                         <SubTitulos>Descrição do Serviço</SubTitulos>
-                            <InputServico type="text" name="servicoInput" 
+                            <InputServico type="textarea" name="servicoInput" 
                             placeholder="Descrição do serviço"
-                            value={this.state.inputDescricao}
-                            onChange={this.handleInputDescricao}/>
+                            value={this.state.inputDescription}
+                            onChange={this.handleInputDescription}/>
                 </label>
 
                 <label>
                         <SubTitulos>Valor do Serviço</SubTitulos>
                             <InputForm type="number" name="valorInput" 
-                            placeholder="Descrição do serviço"
-                            value={this.state.inputValor}
-                            onChange={this.handleInputValor}/>
+                            placeholder="Valor do serviço"
+                            value={this.state.inputValue}
+                            onChange={this.handleInputValue}/>
                 </label>
+                
+                {/* <SubTitulos>Método de Pagamento</SubTitulos>
+
+                {/* <SelecaoPagamento onChange={this.handleOnChangeValue} >
+
+                    <label>Dinheiro <input type="radio" id="dinheiro" value="dinheiro" checked={true}/></label>
+                    <label>Crédito <input type="radio" id="credito" value="credito"/></label>
+                    <label>Débito <input type="radio" id="débito" value="débito"/></label>
+                    <label>Boleto <input type="radio" id="boleto" value="boleto"/></label>
+                    <label>Transferência <input type="radio" id="transferencia" value="transferencia"/></label>
+                    <label>Pix <input type="radio" id="pix" value="pix"/></label>
+                </SelecaoPagamento> */}
+
                 <label>
-                    <SubTitulos>Prazo</SubTitulos>
-                    <InputForm id="prazo" type="date"
-                    value={this.state.inputPrazo}
-                    onChange={this.handleInputPrazo}/>
+                    <SubTitulos>Forma de Pagamento</SubTitulos>
+                        <SelectForm type="select" value={this.state.inputPayment} onChange={this.handleInputPayment}>
+                            <option value="default">Selecione uma forma de pagamento</option>
+                            <option value="dinheiro">Dinheiro</option>
+                            <option value="credito">Crédito</option>
+                            <option value="débito">Débito</option>
+                            <option value="boleto">Boleto</option>
+                            <option value="transferencia">Transferência</option>
+                            <option value="pix">Pix</option>
+                        </SelectForm>
                 </label>
-                <Cadastrar> Cadastrar </Cadastrar>
+                
+                <label>
+                    <SubTitulos>Prazo (em horas)</SubTitulos>
+                    <InputForm id="prazo" type="number"
+                    value={this.state.inputDueDate}
+                    onChange={this.handleInputDueDate}/>
+                </label>
+                <Cadastrar onClick={this.cadastrarServico}> Cadastrar </Cadastrar>
             </FormularioContainer>
         </BaseContainer>
         )
