@@ -2,6 +2,8 @@ import React from 'react'
 import AppContainer from './components/AppContainer'
 import Formulario from './components/Criar/Formulario'
 import ExibirTrabalhos from './components/Exibir/ExibirTrabalhos'
+import Footer from './components/Base/Footer'
+
 // import Home from './components/Home'
 // import { AppContainer } from './components/AppContainer'
 
@@ -14,7 +16,7 @@ export default class App extends React.Component{
 				{/* <Home /> */}
 				<Formulario />
 				<ExibirTrabalhos />
-
+				<Footer />
 			</div>
 		)
 		

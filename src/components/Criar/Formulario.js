@@ -3,6 +3,7 @@ import axios from 'axios'
 import styled from 'styled-components'
 import { baseUrl } from '../Base/Referecias'
 
+
 // ------------------------------------------Styled---------------------------------------------
 
 const BaseContainer = styled.div `
@@ -173,11 +174,12 @@ export default class Formulario extends React.Component{
                             placeholder="Descrição do serviço"
                             value={this.state.inputDescription}
                             onChange={this.handleInputDescription}
-                            style={{flex: 1}}/>
+                            multiline={true}
+                            numberOfLines={3}/>
                 </label>
 
                 <label>
-                        <SubTitulos>Valor do Serviço</SubTitulos>
+                        <SubTitulos>Valor do Serviço (em reais)</SubTitulos>
                             <InputForm type="number" name="valorInput" 
                             placeholder="Valor do serviço"
                             value={this.state.inputValue}
