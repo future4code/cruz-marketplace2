@@ -46,7 +46,6 @@ export default class ExibirTrabalhos extends React.Component {
 
       // <div className='list-item' key={job.id}>
 
-
       <CartaoTrabalho 
       key={job.id}
       cartaoFoto='https://rollingstone.uol.com.br/media/_versions/village_people_michael_putland_getty_widelg.jpg'
