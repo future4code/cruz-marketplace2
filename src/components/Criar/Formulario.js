@@ -76,7 +76,6 @@ const InputServico = styled(InputForm)`
     outline:none;
     color:#3c3c3c;
     border-radius:5px;
-
 `
 const SubTitulos = styled.h4`
     font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', 
@@ -106,8 +105,8 @@ export default class Formulario extends React.Component{
         inputTitle: "", //Titulo do anúncio
         inputDescription:"", //Descriçao do serviço
         inputValue:"", //Valor a ser pago pelo serviço
-        inputPayment:[], //Valor a ser pago pelo serviço
-        inputDueDate:"", //Prazo para execução do serviço - Formato de número/horas
+        inputPayment:[], //Forma de pagamento
+        inputDueDate:"" //Prazo para execução do serviço - Formato de número/horas
         // inputOnChangeValue :""
     };
     handleInputTitle = (e) => {
@@ -120,8 +119,8 @@ export default class Formulario extends React.Component{
         this.setState({ inputValue: Number(e.target.value) });
     };
     handleInputPayment = (e) => {
-        let pagamento = this.state.inputPayment.push(e.target.value);
-        this.setState({ inputPayment: this.pagamento });
+        const array = [e.target.value]
+        this.setState({ inputPayment: array });
     };
     // handleOnChangeValue(e) {
     //     this.setState({ inputOnChangeValue: (e.target.value) });
@@ -146,7 +145,7 @@ export default class Formulario extends React.Component{
     .then((res)=>{
         console.log(res)
         alert("Seu anúncio foi cadastrado com sucesso!")
-        this.setState({ inputTitle: "", inputDescription:"", inputValue:"", inputPayment:["card"], inputDueDate:"" });
+        this.setState({ inputTitle: "", inputDescription:"", inputValue:"", inputPayment:[], inputDueDate:"" });
     }).catch((err)=>{
         alert("Ocorrou alguma falha no seu cadastro :( Tente novamente ou entre em contato com a gente!")
         console.log(err)
@@ -173,7 +172,8 @@ export default class Formulario extends React.Component{
                             <InputServico type="textarea" name="servicoInput" 
                             placeholder="Descrição do serviço"
                             value={this.state.inputDescription}
-                            onChange={this.handleInputDescription}/>
+                            onChange={this.handleInputDescription}
+                            style={{flex: 1}}/>
                 </label>
 
                 <label>
@@ -198,8 +198,8 @@ export default class Formulario extends React.Component{
 
                 <label>
                     <SubTitulos>Forma de Pagamento</SubTitulos>
-                        <SelectForm type="select" value={this.state.inputPayment} onChange={this.handleInputPayment}>
-                            <option value="default">Selecione uma forma de pagamento</option>
+                        <SelectForm name="opcoes" id="select" placeholder="formas de pagamento" onChange={this.handleInputPayment}>
+                            <option value="">Selecione uma forma de pagamento</option>
                             <option value="dinheiro">Dinheiro</option>
                             <option value="credito">Crédito</option>
                             <option value="débito">Débito</option>
