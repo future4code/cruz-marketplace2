@@ -1,7 +1,7 @@
 import React from 'react'
 import AppContainer from './components/AppContainer'
 import Formulario from './components/Criar/Formulario'
-import ExibirTrabalhos from './telas/ExibirTrabalhos'
+import ExibirTrabalhos from './components/Exibir/ExibirTrabalhos'
 // import Home from './components/Home'
 // import { AppContainer } from './components/AppContainer'
 
