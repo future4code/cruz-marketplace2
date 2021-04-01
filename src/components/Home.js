@@ -30,7 +30,7 @@ h2 {
 
 p {
     text-align: center;
-    height: 20px;
+    height: 24px;
     padding: 20px;
     font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', 
     Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
@@ -50,10 +50,11 @@ h2 {
 }   
 
 p {
-    height: 20px;
+    height: 24px;
     padding: 20px;
     font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', 
     Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    text-align: center;
 }    
 
 button {
@@ -84,6 +85,9 @@ img {
     height: 350px;
     width: 350px;
     background-color: #3a7fff;
+    -webkit-box-shadow: 9px 7px 5px rgba(50, 50, 50, 0.77);
+	-moz-box-shadow:    9px 7px 5px rgba(50, 50, 50, 0.77);
+	box-shadow:         9px 7px 5px rgba(50, 50, 50, 0.77);
 }
 `
 
@@ -92,6 +96,7 @@ const DivFornecedor = styled.div `
     display: flex;
     border: 1px solid;
     padding: 30px;
+    
 
 h2 {
     text-align: center;
@@ -99,11 +104,11 @@ h2 {
 }   
 
 p {
-    height: 20px;
+    height: 24px;
     padding: 20px;
     font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', 
     Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    
+    text-align: center;
 }
 
 button {
@@ -135,6 +140,9 @@ img {
     height: 350px;
     width: 350px;
     background-color: #16c153;
+    -webkit-box-shadow: 9px 7px 5px rgba(50, 50, 50, 0.77);
+	-moz-box-shadow:    9px 7px 5px rgba(50, 50, 50, 0.77);
+	box-shadow:         9px 7px 5px rgba(50, 50, 50, 0.77);
 }
 `
 
@@ -162,7 +170,7 @@ SOMOS NINJAS!
                         <p>Temos profissionais verificados, checamos antecedentes criminais, referências profissionais, 
 você tem segurança na hora de contratar. Pode confiar!
 Primeiro faça seu pedido e receba as indicações de acordo com o que você procura.
-Combine diretamente com os profissionais e faça sua escolha.
+Combine diretamente com os profissionais e faça sua escolha. <br />
                         <button>Sou Consumidor</button>
                         </p>
                     <div>
@@ -171,16 +179,16 @@ Combine diretamente com os profissionais e faça sua escolha.
                 </DivConsumidor>
                 <DivFornecedor>
                         <div>
-                            <img></img>
+                            <img ></img>
                         </div>
 
                     <h2>Se você é um profissional?</h2>
                     
-                        <p>conectamos você com muito mais clientes. 
+                        <p>Conectamos você com muito mais clientes. 
 Nossa plataforma te oferece toda facilidade na hora de combinar um serviço. 
 Temos uma equipe pronta para te atender e divulgar seu trabalho.
 Pagamento garantido de forma rápida e segura independente da forma de pagamento do cliente.
-Tudo com selo de qualidade FUTURE NINJAS 2 que oferece muito mais credibilidade para o seu perfil.
+Tudo com selo de qualidade FUTURE NINJAS 2 que oferece muito mais credibilidade para o seu perfil. <br />
                         <button>Sou Fornecedor</button>
                         </p>
                         
