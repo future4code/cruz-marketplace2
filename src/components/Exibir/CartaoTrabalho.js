@@ -12,6 +12,8 @@ export default class CartaoTrabalho extends React.Component {
         </div>
 
         <div className='cartao-dados'>
+
+
             <div className='cartao-nome-e-valor'>
                 <div className='cartao-nome'>
                  {this.props.cartaoNome}
@@ -21,9 +23,11 @@ export default class CartaoTrabalho extends React.Component {
                 </div>
             </div>
 
-            <div className='cartao-descricao'>
+
+            <div className='cartao-so-descricao'>
                 {this.props.cartaoDescricao}
             </div>
+
 
             <div className='cartao-metodo-e-prazo'>
                 <div className='cartao-metodo'>
