@@ -9,6 +9,7 @@ import { baseUrl } from '../Base/Referecias'
 const BaseContainer = styled.div `
     display:flex;
     justify-content:center;
+    align-items:center;
     flex-direction:column;
     padding-top:8vh;
 `
@@ -17,7 +18,6 @@ const FormularioContainer = styled.div `
     justify-content:center;
     flex-direction:column;
     align-items:flex-end;
-    padding-right:8vw;
 `
 const Cadastrar = styled.button `
     color:white;
@@ -43,9 +43,8 @@ const Title = styled.h1 `
     font-weight:bolder;
     font-size:48px;
     color:#16c153;
-    padding-left:8vw;
+    text-align:center;
 `
-
 const InputForm = styled.input`
     font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', 
     Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
@@ -55,7 +54,6 @@ const InputForm = styled.input`
     border-radius:5px;
     border-bottom-color:#3c3c3c;
 `
-
 const SelectForm = styled.select`
     font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', 
     Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
@@ -100,7 +98,8 @@ const SelecaoPagamento = styled.div `
 //     }
 // `
 
-// -------------------------------------------Structure---------------------------------------------
+// -------------------------------------------Estrutura---------------------------------------------
+
 export default class Formulario extends React.Component{
     state = {
         inputTitle: "", //Titulo do anúncio
@@ -129,7 +128,6 @@ export default class Formulario extends React.Component{
     handleInputDueDate = (e) => {
         this.setState({ inputDueDate: Number(e.target.value) });
     };
-    //--------------------------------Função Cadastrar Novo Serviço-----------------------------------
 
     cadastrarServico = () => {
     const body = {
@@ -139,8 +137,7 @@ export default class Formulario extends React.Component{
         paymentMethods: this.state.inputPayment,
         dueDate: this.state.inputDueDate,
     };
-    
-    // ---------------------------------------------Axios//API-----------------------------------------
+
     axios
     .post(baseUrl,body)
     .then((res)=>{
@@ -153,12 +150,10 @@ export default class Formulario extends React.Component{
     })
     }
 
-// ---------------------------------------------Estrutura-----------------------------------------
     render(){
         return(
             <BaseContainer>
             <Title>Novo Anúncio</Title>
-            <div></div>
             <FormularioContainer>
                 <label>
                         <SubTitulos>Título</SubTitulos>
@@ -170,7 +165,7 @@ export default class Formulario extends React.Component{
 
                 <label>
                         <SubTitulos>Descrição do Serviço</SubTitulos>
-                            <InputServico type="textarea" name="servicoInput" 
+                            <InputServico type="textarea" name="servicoInput" minlength="5"  maxlength="100"
                             placeholder="Descrição do serviço"
                             value={this.state.inputDescription}
                             onChange={this.handleInputDescription}
