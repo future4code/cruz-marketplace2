@@ -91,14 +91,14 @@ const SelecaoPagamento = styled.div `
     flex-direction:column;
     padding-left:-200px;
 `
-const Pagamento = styled.div `
-    display:flex;
-    position: relative;
-    left: -164px;
-    &:tr:nth-child(2n+1){
-        margin-left:10px;
-    }
-`
+// const Pagamento = styled.div `
+//     display:flex;
+//     position: relative;
+//     left: -164px;
+//     &:tr:nth-child(2n+1){
+//         margin-left:10px;
+//     }
+// `
 
 // -------------------------------------------Structure---------------------------------------------
 export default class Formulario extends React.Component{
@@ -107,7 +107,8 @@ export default class Formulario extends React.Component{
         inputDescription:"", //Descriçao do serviço
         inputValue:"", //Valor a ser pago pelo serviço
         inputPayment:[], //Valor a ser pago pelo serviço
-        inputDueDate:"" //Prazo para execução do serviço - Formato de número/horas
+        inputDueDate:"", //Prazo para execução do serviço - Formato de número/horas
+        // inputOnChangeValue :""
     };
     handleInputTitle = (e) => {
         this.setState({ inputTitle: e.target.value });
@@ -119,8 +120,12 @@ export default class Formulario extends React.Component{
         this.setState({ inputValue: Number(e.target.value) });
     };
     handleInputPayment = (e) => {
-        this.setState({ inputPayment: (e.target.value) });
+        let pagamento = this.state.inputPayment.push(e.target.value);
+        this.setState({ inputPayment: this.pagamento });
     };
+    // handleOnChangeValue(e) {
+    //     this.setState({ inputOnChangeValue: (e.target.value) });
+    // };
     handleInputDueDate = (e) => {
         this.setState({ inputDueDate: Number(e.target.value) });
     };
@@ -141,7 +146,7 @@ export default class Formulario extends React.Component{
     .then((res)=>{
         console.log(res)
         alert("Seu anúncio foi cadastrado com sucesso!")
-        this.setState({ inputTitle: "", inputDescription:"", inputValue:"", inputPayment:[], inputDueDate:"" });
+        this.setState({ inputTitle: "", inputDescription:"", inputValue:"", inputPayment:["card"], inputDueDate:"" });
     }).catch((err)=>{
         alert("Ocorrou alguma falha no seu cadastro :( Tente novamente ou entre em contato com a gente!")
         console.log(err)
@@ -165,7 +170,7 @@ export default class Formulario extends React.Component{
 
                 <label>
                         <SubTitulos>Descrição do Serviço</SubTitulos>
-                            <InputServico type="text" name="servicoInput" 
+                            <InputServico type="textarea" name="servicoInput" 
                             placeholder="Descrição do serviço"
                             value={this.state.inputDescription}
                             onChange={this.handleInputDescription}/>
@@ -179,24 +184,30 @@ export default class Formulario extends React.Component{
                             onChange={this.handleInputValue}/>
                 </label>
                 
-                <SubTitulos>Método de Pagamento</SubTitulos>
+                {/* <SubTitulos>Método de Pagamento</SubTitulos>
 
-                <SelecaoPagamento >
-                <Pagamento>
-                    <label>Dinheiro <input type="radio" id="dinheiro" value="dinheiro"/></label>
+                {/* <SelecaoPagamento onChange={this.handleOnChangeValue} >
+
+                    <label>Dinheiro <input type="radio" id="dinheiro" value="dinheiro" checked={true}/></label>
                     <label>Crédito <input type="radio" id="credito" value="credito"/></label>
-                </Pagamento>
-
-                <Pagamento>
                     <label>Débito <input type="radio" id="débito" value="débito"/></label>
                     <label>Boleto <input type="radio" id="boleto" value="boleto"/></label>
-                </Pagamento>
-
-                <Pagamento>
                     <label>Transferência <input type="radio" id="transferencia" value="transferencia"/></label>
                     <label>Pix <input type="radio" id="pix" value="pix"/></label>
-                </Pagamento>
-                </SelecaoPagamento>
+                </SelecaoPagamento> */}
+
+                <label>
+                    <SubTitulos>Forma de Pagamento</SubTitulos>
+                        <SelectForm type="select" value={this.state.inputPayment} onChange={this.handleInputPayment}>
+                            <option value="default">Selecione uma forma de pagamento</option>
+                            <option value="dinheiro">Dinheiro</option>
+                            <option value="credito">Crédito</option>
+                            <option value="débito">Débito</option>
+                            <option value="boleto">Boleto</option>
+                            <option value="transferencia">Transferência</option>
+                            <option value="pix">Pix</option>
+                        </SelectForm>
+                </label>
                 
                 <label>
                     <SubTitulos>Prazo (em horas)</SubTitulos>
