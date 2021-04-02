@@ -8,6 +8,10 @@ export default class ExibirTrabalhos extends React.Component {
 
   state={
     valorSelectOrdem: 'maior preço',
+    valorInputMinimo: 100,
+    valorInputMaximo: 5000,
+    valorInputNome: '',
+
     jobs: []
   }
 
@@ -19,6 +23,16 @@ export default class ExibirTrabalhos extends React.Component {
 
   onChangeSelectOrdem = (event) => {
     this.setState( { valorSelectOrdem: event.target.value } )
+  }
+
+  onChangeInputMinimo = (event) =>{
+    this.setState( { valorInputMinimo: event.target.value } )
+  }
+  onChangeInputMaximo = (event) => {
+    this.setState( { valorInputMaximo: event.target.value } )
+  }
+  onChangeInputNome =(event) => {
+    this.setState( { valorInputNome: event.target.value } )
   }
 
 
@@ -47,26 +61,20 @@ export default class ExibirTrabalhos extends React.Component {
 
   render() {
 
-
-    //funções de filtragem para enviar ao JSX (tal como o map)
-    
     const produtoFiltrado = this.state.jobs.filter ( job => {
       
-      // //REGEX para o filtro por palavra com apenas algumas letras
-      // let regex = new RegExp('['+this.state.valorInputNome+']{4,}', "gmi")
-      // let resultadoBusca = regex.test(produto.produtoNome)
-
-      // if ((
-      //   produto.produtoNome === this.state.valorInputNome || 
-      //   this.state.valorInputNome === '' ||
-      //   resultadoBusca
-      //   ) 
-      // && produto.produtoPreco >= this.state.valorInputMinimo && produto.produtoPreco <= this.state.valorInputMaximo ) {
-      //     return true
-      // }
-      // return false
-      return true 
+      if ((
+        job.title === this.state.valorInputNome 
+        || this.state.valorInputNome === '' 
+        || job.title.includes(this.state.valorInputNome)
+        || job.description.includes(this.state.valorInputNome)
+        ) 
+      && job.value >= this.state.valorInputMinimo && job.value <= this.state.valorInputMaximo ) {
+          return true
+      }
+      return false
   })
+  
     //ORDENAÇÃO COM MÉTODO SORT
     
     // const produtoOrdenadoPrazo = produtoFiltrado.sort( (a, b) => {
@@ -135,25 +143,47 @@ export default class ExibirTrabalhos extends React.Component {
 
           <div className='exibir-inputs'>
 
-            <input type='text' size={90} placeholder='Qual serviço você procura? Ex.: Assistência Técnica, Consultoria, Web Design, Reformas, Serviços Domésticos e Aulas Particulares' />
+            <input 
+              type='text' 
+              size={90} 
+              placeholder='Qual serviço você procura? Ex.: Assistência Técnica, Consultoria, Web Design, Reformas, Serviços Domésticos e Aulas Particulares' 
+              value={this.state.valorInputNome}
+              onChange={this.onChangeInputNome}
+          />
             <p>Ordenar por:</p>
             <select className='selectTamanho'
-            value={this.state.valorSelectOrdem}
-            onChange={this.onChangeSelectOrdem}
+              value={this.state.valorSelectOrdem}
+              onChange={this.onChangeSelectOrdem}
             >
-              <option value='maior preço'>Maior preço </option>
-              <option value='menor preço'>Menor preço </option>
-              <option value='maior prazo'>Maior prazo </option>
-              <option value='menor prazo'>Menor prazo </option>
-              <option value='ordem alfabética'>Ordem alfabética </option>
+                <option value='maior preço'>Maior preço </option>
+                <option value='menor preço'>Menor preço </option>
+                <option value='maior prazo'>Maior prazo </option>
+                <option value='menor prazo'>Menor prazo </option>
+                <option value='ordem alfabética'>Ordem alfabética </option>
             </select> 
 
-            <p>Filtrar por:</p>
-            <select className='selectTamanho'>
-              <option>Filtrar</option>
-            </select>
+
+            <p>Filtrar por valor:</p>
+            <input 
+                type='number'
+                className='minimo'
+                value={this.state.valorInputMinimo}
+                onChange={this.onChangeInputMinimo}
+                placeholder={'Valor mínimo'}
+            /> 
+            <input 
+                type='number'
+                className="maximo"
+                value={this.state.valorInputMaximo}
+                onChange={this.onChangeInputMaximo}
+                placeholder={'Valor máximo'}
+                // onKeyDown={this.onKeyDown}
+            /> 
+
 
           </div>
+
+
 
         </div>
 
