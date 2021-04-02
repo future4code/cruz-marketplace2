@@ -8,3 +8,41 @@ Não esqueçam de editar o readme com:
 - O que funciona
 - O que não funciona
 - **LINK DO SURGE**
+
+Primeiros passos
+1. Acesse nosso site em: http://nine-stretch.surge.sh/ ;
+2. Crie o anúncio com o serviço prestado para que possam resolver o seu problema
+3. Escolha o anúncio que você deseja resolver o problema.
+
+Para melhor experiência, acesse nosso site no computador pois estamos trabalhando para deixá-lo adaptado aos seus outros dispositivos 😃
+
+Para você Dev 💻
+Objetivos do Projeto
+Criar uma marketplace usando os recursos de React aprendido em aula. No projeto, deve conter as seguintes funcionalidades:
+
+Home
+✔️ Renderização condicional para a página de criar anúncio;
+✔️ Renderização condicional para a página de visualizar anúncio;
+
+Funcionalidades
+✔️ Duas áreas separadas no site, uma destinada a criação das ofertas de trabalho e outra destinada a busca dessas ofertas.
+✔️ Na parte de busca o usuário deve ser capaz de ver mais detalhes da oferta e se candidatar a ela;
+✔️ Toda oferta de trabalho deve conter, no mínimo, os seguintes campos:
+- Título
+- Descrição
+- Valor da remuneração
+- Método(s) de pagamento oferecidos
+- Prazo
+✔️Na listagem de trabalhos o usuário deve ser capaz:
+- - De filtrar por:
+    - Valor mínimo e máximo
+    - Título ou descrição
+✔️- De ordenar por:
+    - Título
+    - Valor da remuneração
+    - Prazo
+_________________________________________________________________________________________________________________________________________________________________
+Primeiros passos
+Clone o repositório;
+Dê um yarn install / npm install;
+Acesse o nosso código
