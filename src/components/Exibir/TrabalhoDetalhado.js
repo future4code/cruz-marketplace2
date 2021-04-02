@@ -1,12 +1,19 @@
 import React from 'react'
-import './CartaoTrabalho.css'
+import CartaoTrabalho from './CartaoTrabalho'
+import './ExibirTrabalhos.css'
+import axios from 'axios'
+import { api, img } from './constantes/API'
+import styled from 'styled-components'
 import Button from '@material-ui/core/Button';
 
 
-export default class CartaoTrabalho extends React.Component {
-  render() {
-    return (
-      <div className='cartao-container'>
+export default class TrabalhoDetalhado extends React.Component {
+
+
+
+    render() {
+        return (
+            <div className='cartaoDetalhado-container'>
             {/* {this.props.id} */}
 
         <div className='cartao-foto'>
@@ -43,17 +50,8 @@ export default class CartaoTrabalho extends React.Component {
 
 
         </div>
-            <Button onClick={this.props.funcaoBotao} color="primary" size="large" style={{maxHeight: '50px', marginTop: '50px', backgroundColor: '#16c153', marginBottom: '50px', color: 'white'}} variant="contained" >{this.props.textoBotao}</Button>
+            {/* <Button onClick={this.props.funcaoBotao} color="primary" size="large" style={{maxHeight: '50px', marginTop: '50px', backgroundColor: '#16c153', marginBottom: '50px', color: 'white'}} variant="contained" >{this.props.textoBotao}</Button> */}
     </div>
-
-
-    )
-  }
+        )
+    }
 }
-
-
-        {/* <div className='cartao-botao'>
-        <div className='cartao-botao'>
-            <button onClick={this.props.funcao}> {this.props.textoBotao} </button>
-        </div> */}
-        {/* </div> */}
