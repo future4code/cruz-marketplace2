@@ -13,6 +13,7 @@ Luciana Monteiro
 Marcos Maia
 Nathalia Mesquita da Silva Cardoso
 
+__________________________________________________________________________________________________________________________________________________________________
 
 Primeiros passos
 1. Acesse nosso site em: http://nine-stretch.surge.sh/ ;
@@ -21,7 +22,10 @@ Primeiros passos
 
 Para melhor experiência, acesse nosso site no computador pois estamos trabalhando para deixá-lo adaptado aos seus outros dispositivos 😃
 
-Para você Dev 💻
+__________________________________________________________________________________________________________________________________________________________________
+
+###Para você Dev 💻 <br>
+
 Objetivos do Projeto
 Criar uma marketplace usando os recursos de React aprendido em aula. No projeto, deve conter as seguintes funcionalidades:
 
