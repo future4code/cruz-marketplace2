@@ -16,10 +16,10 @@ export default class CartaoTrabalho extends React.Component {
 
             <div className='cartao-nome-e-valor'>
                 <div className='cartao-nome'>
-                 {this.props.cartaoNome}
+                 <b>{this.props.cartaoNome}</b>
                 </div>
                 <div className='cartao-valor'>
-                    {this.props.cartaoPreco}
+                    <b>{`R$ ${this.props.cartaoPreco}`}</b>
                 </div>
             </div>
 
