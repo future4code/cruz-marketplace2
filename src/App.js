@@ -22,9 +22,9 @@ export default class App extends React.Component{
 
 				{/* <h1>Teste</h1> */}
 				<Home />
-
+{/* 
 				<Formulario />
-				<ExibirTrabalhos />
+				<ExibirTrabalhos /> */}
 				<Footer />
 			</div>
 		)
