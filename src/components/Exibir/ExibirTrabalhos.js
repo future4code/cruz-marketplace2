@@ -7,7 +7,7 @@ import { api, img } from './constantes/API'
 export default class ExibirTrabalhos extends React.Component {
 
   state={
-    valorSelectOrdem: 'decrescente',
+    valorSelectOrdem: 'maior preço',
     jobs: []
   }
 
@@ -68,22 +68,53 @@ export default class ExibirTrabalhos extends React.Component {
       return true 
   })
     //ORDENAÇÃO COM MÉTODO SORT
-    const produtoOrdenado = produtoFiltrado.sort( (a, b) => {
-      return this.state.valorSelectOrdem === 'crescente' ? a.value - b.value : b.value - a.value 
+    
+    // const produtoOrdenadoPrazo = produtoFiltrado.sort( (a, b) => {
+    //   return this.state.prazoSelectOrdem === 'menor prazo' ? a.value - b.value : b.value - a.value 
+    //   })
+  
+    // const produtoOrdenado = produtoFiltrado.sort( (a, b) => {
+    //   switch (this.state.valorSelectOrdem) {
+    //     case 'menor preço':
+    //       return a.value - b.value
+    //       break
+    //     case 'maior preço':
+    //       return b.value - a.value
+    //     case 'menor prazo':
+    //       return a.dueDate - b.dueDate
+    //     case 'maior prazo':
+    //       return b.dueDate - a.dueDate
+    //     default:
+    //       return a.value - b.value
+    //   }
+    // })
+
+    // const produtoOrdenado = produtoFiltrado.sort( (a, b) => {
+    //   return this.state.valorSelectOrdem === 'menor preço' ? a.value - b.value : b.value - a.value 
+    //   })
+
+      const produtoOrdenado = produtoFiltrado.sort( (a, b) => {
+        if (this.state.valorSelectOrdem === 'menor preço') {
+          return a.value - b.value
+        } else if (this.state.valorSelectOrdem === 'maior preço') {
+          return b.value - a.value
+        } else if (this.state.valorSelectOrdem === 'maior prazo') {
+          return b.dueDate - a.dueDate
+        } else if (this.state.valorSelectOrdem === 'menor prazo') {
+          return a.dueDate - b.dueDate
+        } else if (this.state.valorSelectOrdem === 'ordem alfabética') {
+          return a.title < b.title
+        } else {
+          console.log("nenhum")
+        }
       })
-    
-    
-    // const produtoOrdenado = () => {
-    //   this.setState({jobs: produtoOrdenaNDO})
-    // }
-
-
 
     // JSX (tal como o map)
     const jobsToScreen = produtoOrdenado.map((job) => (
 
         <CartaoTrabalho 
         key={job.id}
+        // cartaoFoto={'../../img/ninja-azul.jpg'}
         cartaoFoto={img}
         cartaoNome={job.title}
         cartaoPreco={job.value}
@@ -110,8 +141,11 @@ export default class ExibirTrabalhos extends React.Component {
             value={this.state.valorSelectOrdem}
             onChange={this.onChangeSelectOrdem}
             >
-              <option value='crescente'>Preço Menor </option>
-              <option value='decrescente'>Preço Maior </option>
+              <option value='maior preço'>Maior preço </option>
+              <option value='menor preço'>Menor preço </option>
+              <option value='maior prazo'>Maior prazo </option>
+              <option value='menor prazo'>Menor prazo </option>
+              <option value='ordem alfabética'>Ordem alfabética </option>
             </select> 
 
             <p>Filtrar por:</p>
