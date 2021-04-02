@@ -24,7 +24,6 @@ export default class ExibirTrabalhos extends React.Component {
   }
 
 
-
   render() {
 
         

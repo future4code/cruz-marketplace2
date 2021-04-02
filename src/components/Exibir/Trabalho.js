@@ -310,7 +310,6 @@ export default class Trabalho extends React.Component {
 
       </BaseContainer>
 
-
     )
   }
 }
