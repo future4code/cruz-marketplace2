@@ -12,6 +12,8 @@ import Select from '@material-ui/core/Select';
 import Button from '@material-ui/core/Button';
 import { createMuiTheme, withStyles, ThemeProvider } from '@material-ui/core/styles';
 import { green, purple, blue } from '@material-ui/core/colors';
+import Header from '../Base/Header'
+import Footer from '../Base/Footer'
 
 // ------------------------------------------Styled---------------------------------------------
 
@@ -173,7 +175,12 @@ export default class Formulario extends React.Component{
 
     render(){
         return(
+            <div>
+                <Header />
+
             <BaseContainer>
+
+
             <Title>Novo Anúncio</Title>
             <FormularioContainer>
                 <label>
@@ -247,6 +254,9 @@ export default class Formulario extends React.Component{
                 <Button style={{maxHeight: '50px', marginTop: '50px', backgroundColor: '#16c153'}} variant="contained" onClick={this.cadastrarServico} color="primary" size="large" fullWidth={true}> Cadastrar </Button> 
             </FormularioContainer>
         </BaseContainer>
+        <div style={{ marginTop:'80px'}}></div>
+           <Footer />
+                    </div>
         )
     }
 }

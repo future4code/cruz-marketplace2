@@ -7,6 +7,8 @@ import servico from '../components/img/serviço.svg'
 import bananinha from '../banner.png'
 // import consumidor from './imagens/consumidor.jpeg'
 // import fornecedor from './imagens/fornecedor.jpeg'
+import Header from './Base/Header'
+import Footer from './Base/Footer'
 
 // ------------------------------------------------------------Ajuste Códigos ------------------------------------------------------------------------
 const Container = styled.div `
@@ -205,6 +207,7 @@ export default class Home extends React.Component{
         return(
 
             <Container>
+                <Header />
                 {/* <Banner><img src={bananinha}/> </Banner >  */}
                 <Banner></Banner>
 
@@ -255,7 +258,7 @@ export default class Home extends React.Component{
                         {/* </div> */}
                         
                 </DivFornecedor>
-                
+                <Footer />
             </Container>
 
         )
