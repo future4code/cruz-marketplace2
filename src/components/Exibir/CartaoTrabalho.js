@@ -1,5 +1,7 @@
 import React from 'react'
 import './CartaoTrabalho.css'
+import Button from '@material-ui/core/Button';
+
 
 export default class CartaoTrabalho extends React.Component {
   render() {
@@ -41,7 +43,7 @@ export default class CartaoTrabalho extends React.Component {
 
 
         </div>
-            <button onClick={this.props.funcaoBotao}>{this.props.textoBotao}</button>
+            <Button onClick={this.props.funcaoBotao} color="primary" size="large" style={{maxHeight: '50px', marginTop: '50px', backgroundColor: '#16c153', marginBottom: '50px', color: 'white'}} variant="contained" >{this.props.textoBotao}</Button>
     </div>
 
 

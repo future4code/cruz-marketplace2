@@ -94,6 +94,7 @@ img {
 .cartao-so-descricao {
     padding: 10px ;
     font-size: medium;
+    height: 80px;
 }
 
 .cartao-metodo-e-prazo {
