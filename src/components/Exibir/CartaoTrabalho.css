@@ -125,3 +125,11 @@ img {
        /* padding: 20px; */
    }
    
+
+button {
+    display: block;
+    margin: 0 auto;
+    margin-top: 30px; 
+    margin-bottom: 30px;
+    width: 250px;
+}

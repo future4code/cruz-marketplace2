@@ -39,7 +39,9 @@ export default class CartaoTrabalho extends React.Component {
             </div>
 
 
+
         </div>
+            <button onClick={this.props.funcaoBotao}>{this.props.textoBotao}</button>
     </div>
 
 
