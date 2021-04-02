@@ -106,16 +106,16 @@ export default class ExibirTrabalhos extends React.Component {
 
             <input type='text' size={90} placeholder='Qual serviço você procura? Ex.: Assistência Técnica, Consultoria, Web Design, Reformas, Serviços Domésticos e Aulas Particulares' />
             <p>Ordenar por:</p>
-            <select 
+            <select className='selectTamanho'
             value={this.state.valorSelectOrdem}
             onChange={this.onChangeSelectOrdem}
             >
-              <option value='crescente'>Preço Menor</option>
-              <option value='decrescente'>Preço Maior</option>
+              <option value='crescente'>Preço Menor </option>
+              <option value='decrescente'>Preço Maior </option>
             </select> 
 
-
-            <select>
+            <p>Filtrar por:</p>
+            <select className='selectTamanho'>
               <option>Filtrar</option>
             </select>
 

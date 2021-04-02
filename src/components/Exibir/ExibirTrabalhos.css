@@ -8,12 +8,20 @@
 .exibir-inputs {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content:flex-start;
     
+}
+
+.exibir-inputs > input, select, p {
+    margin-right: 20px;
+}
+
+.selectTamanho {
+    width: 150px;
 }
 
 .exibir-grade-cartoes{
     display: flex;
     flex-flow: row wrap;
-    
+
 }
