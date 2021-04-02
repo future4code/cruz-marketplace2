@@ -1,4 +1,4 @@
-.cartao-container {
+.cartaoDetalhado-container {
     /* border: 2px solid brown;  */
     display: flex;
     flex-direction: column;
@@ -94,7 +94,7 @@ img {
 .cartao-so-descricao {
     padding: 10px ;
     font-size: medium;
-    height: 80px;
+    /* height: 80px; */
 }
 
 .cartao-metodo-e-prazo {
