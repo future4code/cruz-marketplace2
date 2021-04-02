@@ -2,9 +2,19 @@ import React from 'react'
 import axios from 'axios'
 import styled from 'styled-components'
 import { baseUrl } from '../Base/Referecias'
-
+import TextField from '@material-ui/core/TextField';
+import MenuItem from '@material-ui/core/MenuItem';
+import { makeStyles } from '@material-ui/core/styles';
+import InputLabel from '@material-ui/core/InputLabel';
+import FormHelperText from '@material-ui/core/FormHelperText';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
+import Button from '@material-ui/core/Button';
+import { createMuiTheme, withStyles, ThemeProvider } from '@material-ui/core/styles';
+import { green, purple, blue } from '@material-ui/core/colors';
 
 // ------------------------------------------Styled---------------------------------------------
+
 
 const BaseContainer = styled.div `
     display:flex;
@@ -37,13 +47,14 @@ const Cadastrar = styled.button `
     }
     margin-top:25px;
 `
-const Title = styled.h1 `
+const Title = styled.h2 `
     font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', 
     Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    font-weight:bolder;
+    font-weight: 100;
     font-size:48px;
     color:#16c153;
-    text-align:center;
+    text-align: center;
+
 `
 const InputForm = styled.input`
     font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', 
@@ -76,11 +87,13 @@ const InputServico = styled(InputForm)`
     color:#3c3c3c;
     border-radius:5px;
 `
-const SubTitulos = styled.h4`
+const SubTitulos = styled.p`
     font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', 
     Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    width: 328px;
-    color:#16c153;
+    width: 500px;
+    // color:#16c153;
+    text-transform: uppercase;
+    font-size: 12px;
 `
 const SelecaoPagamento = styled.div `
     display:flex;
@@ -97,7 +110,15 @@ const SelecaoPagamento = styled.div `
 //         margin-left:10px;
 //     }
 // `
-
+const useStyles = makeStyles((theme) => ({
+    root: {
+      '& > *': {
+        margin: theme.spacing(1),
+        width: '50vw',
+      },
+    },
+  }));
+  
 // -------------------------------------------Estrutura---------------------------------------------
 
 export default class Formulario extends React.Component{
@@ -156,29 +177,35 @@ export default class Formulario extends React.Component{
             <Title>Novo Anúncio</Title>
             <FormularioContainer>
                 <label>
+                <FormControl className={useStyles.root}>
                         <SubTitulos>Título</SubTitulos>
-                            <InputForm type="text" name="tituloInput" 
+                            <TextField type="text" name="tituloInput" 
                             placeholder="Insira o nome do seu serviço"
                             value={this.state.inputTitle}
                             onChange={this.handleInputTitle}/>
+                </FormControl>
                 </label>
 
                 <label>
+                <FormControl className={useStyles.root}>
                         <SubTitulos>Descrição do Serviço</SubTitulos>
-                            <InputServico type="textarea" name="servicoInput" minlength="5"  maxlength="100"
-                            placeholder="Descrição do serviço"
+                            <TextField type="textarea" name="servicoInput" minlength="5"  maxlength="100"
+                            placeholder="Descreva de forma objetiva o serviço que você precisa"
                             value={this.state.inputDescription}
                             onChange={this.handleInputDescription}
-                            multiline={true}
-                            numberOfLines={3}/>
+                            multiline
+                            rowsMax={3}/>
+                </FormControl>
                 </label>
 
                 <label>
+                <FormControl className={useStyles.root}>
                         <SubTitulos>Valor do Serviço (em reais)</SubTitulos>
-                            <InputForm type="number" name="valorInput" 
-                            placeholder="Valor do serviço"
+                            <TextField type="number" name="valorInput" 
+                            placeholder="Quantos reais pretende pagar?"
                             value={this.state.inputValue}
                             onChange={this.handleInputValue}/>
+                </FormControl>
                 </label>
                 
                 {/* <SubTitulos>Método de Pagamento</SubTitulos>
@@ -194,25 +221,30 @@ export default class Formulario extends React.Component{
                 </SelecaoPagamento> */}
 
                 <label>
-                    <SubTitulos>Forma de Pagamento</SubTitulos>
-                        <SelectForm name="opcoes" id="select" placeholder="formas de pagamento" onChange={this.handleInputPayment}>
-                            <option value="">Selecione uma forma de pagamento</option>
-                            <option value="dinheiro">Dinheiro</option>
-                            <option value="credito">Crédito</option>
-                            <option value="débito">Débito</option>
-                            <option value="boleto">Boleto</option>
-                            <option value="transferencia">Transferência</option>
-                            <option value="pix">Pix</option>
-                        </SelectForm>
+                    <FormControl>
+                        <SubTitulos>Forma de Pagamento</SubTitulos>
+                             <Select name="opcoes" id="select" label="Forma de Pagamento" placeholder="Escolha uma forma de pagamento" onChange={this.handleInputPayment}>
+                                <MenuItem value="">Selecione uma forma de pagamento</MenuItem>
+                                <MenuItem value="dinheiro">Dinheiro</MenuItem>
+                                <MenuItem value="credito">Crédito</MenuItem>
+                                <MenuItem value="débito">Débito</MenuItem>
+                                <MenuItem value="boleto">Boleto</MenuItem>
+                                <MenuItem value="transferencia">Transferência</MenuItem>
+                                <MenuItem value="pix">Pix</MenuItem>
+                            </Select>
+                       </FormControl>
                 </label>
                 
                 <label>
+                <FormControl className={useStyles.root}>
                     <SubTitulos>Prazo (em horas)</SubTitulos>
-                    <InputForm id="prazo" type="number"
+                    <TextField id="prazo" type="number"
+                    placeholder="Qual o prazo em horas para a conclusão do serviço?"
                     value={this.state.inputDueDate}
                     onChange={this.handleInputDueDate}/>
+                </FormControl>
                 </label>
-                <Cadastrar onClick={this.cadastrarServico}> Cadastrar </Cadastrar>
+                <Button style={{maxHeight: '50px', marginTop: '50px', backgroundColor: '#16c153'}} variant="contained" onClick={this.cadastrarServico} color="primary" size="large" fullWidth={true}> Cadastrar </Button> 
             </FormularioContainer>
         </BaseContainer>
         )
