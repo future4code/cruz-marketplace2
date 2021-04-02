@@ -29,24 +29,24 @@ const FormularioContainer = styled.div `
     flex-direction:column;
     align-items:flex-end;
 `
-const Cadastrar = styled.button `
-    color:white;
-    font-weight:bolder;
-    width: 332px;
-    height:50px;
-    border-radius:10px;
-    left:calc(50% - 75px);
-    top:calc(50% - 25px);
-    background: linear-gradient(60deg, #16c153, #2ed573);
-    cursor:pointer;
-    line-height:12px;
-    border:none;
-    outline:none;
-    &:hover{
-        background: linear-gradient(60deg, #2ed573,#7bed9f);
-    }
-    margin-top:25px;
-`
+// const Cadastrar = styled.button `
+//     color:white;
+//     font-weight:bolder;
+//     width: 332px;
+//     height:50px;
+//     border-radius:10px;
+//     left:calc(50% - 75px);
+//     top:calc(50% - 25px);
+//     background: linear-gradient(60deg, #16c153, #2ed573);
+//     cursor:pointer;
+//     line-height:12px;
+//     border:none;
+//     outline:none;
+//     &:hover{
+//         background: linear-gradient(60deg, #2ed573,#7bed9f);
+//     }
+//     margin-top:25px;
+// `
 const Title = styled.h2 `
     font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', 
     Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
@@ -115,9 +115,9 @@ const useStyles = makeStyles((theme) => ({
       '& > *': {
         margin: theme.spacing(1),
         width: '50vw',
-      },
     },
-  }));
+    },
+}));
   
 // -------------------------------------------Estrutura---------------------------------------------
 
@@ -223,7 +223,7 @@ export default class Formulario extends React.Component{
                 <label>
                     <FormControl>
                         <SubTitulos>Forma de Pagamento</SubTitulos>
-                             <Select name="opcoes" id="select" label="Forma de Pagamento" placeholder="Escolha uma forma de pagamento" onChange={this.handleInputPayment}>
+                            <Select name="opcoes" id="select" label="Forma de Pagamento" placeholder="Escolha uma forma de pagamento" onChange={this.handleInputPayment}>
                                 <MenuItem value="">Selecione uma forma de pagamento</MenuItem>
                                 <MenuItem value="dinheiro">Dinheiro</MenuItem>
                                 <MenuItem value="credito">Crédito</MenuItem>
@@ -232,7 +232,7 @@ export default class Formulario extends React.Component{
                                 <MenuItem value="transferencia">Transferência</MenuItem>
                                 <MenuItem value="pix">Pix</MenuItem>
                             </Select>
-                       </FormControl>
+                    </FormControl>
                 </label>
                 
                 <label>
