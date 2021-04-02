@@ -1,9 +1,10 @@
 import React from 'react'
 import axios from 'axios'
 import styled from 'styled-components'
-import Button from '@material-ui/core/Button';
+import Button from '@material-ui/core/Button'
 import busca from '../components/img/pesquisa.svg'
 import servico from '../components/img/serviço.svg'
+import bananinha from '../banner.png'
 // import consumidor from './imagens/consumidor.jpeg'
 // import fornecedor from './imagens/fornecedor.jpeg'
 
@@ -12,13 +13,13 @@ const Container = styled.div `
     display:flex;
     justify-content:center;
     flex-direction:column;
-    padding-top:12vh;
-    
+    /* padding-top:4vh; */
 `
 const Banner = styled.div `
     display: flex;
-    height: 400px;
-    background-color: #3a7fff;
+    height: 600px;
+    width: 100vw;
+    background-image:url(${bananinha});
 `
 const DivQuemSomos = styled.div `
     display:flex;
@@ -62,10 +63,21 @@ const DivFornecedor = styled.div `
     text-align:justify;
     flex-direction:column;
     width:48vw;
-    padding:0 60px 60px 0;
+    padding-top: 100px;
+    /* padding:60px 0 0 60px; */
 `
-
-
+const DivTeste = styled.div`
+    position:relative;
+    left:598px;
+    bottom:252px;
+`
+const ImgFornecedor = styled.img `
+    height: 430px;
+    width: 450px;
+    position:relative;
+    left:24px;
+    bottom:622px;
+`
 
 
 
@@ -193,17 +205,18 @@ export default class Home extends React.Component{
         return(
 
             <Container>
-                <Banner> </Banner>
+                {/* <Banner><img src={bananinha}/> </Banner >  */}
+                <Banner></Banner>
 
                 <DivQuemSomos>
                     <TitloTexto>Quem Somos</TitloTexto>
-                        <div>
+                        {/* <div> */}
                             <Textodiv>Somos uma plataforma que conecta clientes e profissionais em todo Brasil 
-                                com centenas de tipos de serviços  que você pode contratar <p> e também oferecer.
-                                Nossa missão é atender com qualidade, garantia e rapidez. </p>  
+                                com centenas de tipos de serviços  que você pode contratar e também oferecer.
+                                Nossa missão é atender com qualidade, garantia e rapidez.   
                                 <span> SOMOS NINJAS! SOMOS FUTURE NINJAS!</span>
                             </Textodiv>
-                        </div>
+                        {/* </div> */}
                         
                 </DivQuemSomos>
 
@@ -226,21 +239,20 @@ export default class Home extends React.Component{
 
                 
                 <DivFornecedor>
-                        <div>
-                        <img src={servico}/>
-                        </div>
 
-                    <TitloTexto>Se você é um profissional?</TitloTexto>
-                        <div>
+                    <DivTeste>
+                        <TitloTexto>Se você é um profissional?</TitloTexto>
                             <TextoDivPequeno>Conectamos você com muito mais clientes. 
                                 Nossa plataforma te oferece toda facilidade na hora de combinar um serviço. 
                                 Temos uma equipe pronta para te atender e divulgar seu trabalho.
                                 Pagamento garantido de forma rápida e segura independente da forma 
                                 de pagamento do cliente.Tudo com selo de qualidade <span>FUTURE NINJAS 2</span> que oferece muito mais credibilidade para o seu perfil.
                             </TextoDivPequeno>
-                            <Button style={{maxHeight: '50px', marginTop: '50px', backgroundColor: '#16c153'}} variant="contained"  color="primary" size="large" > Sou fornecedor </Button> 
-                        </div>
-                        
+                                <Button style={{maxHeight: '50px', marginTop: '50px', backgroundColor: '#16c153'}} variant="contained"  color="primary" size="large" > Sou fornecedor </Button> 
+                    </DivTeste>
+                        {/* <div> */}
+                            <ImgFornecedor src={servico}/>
+                        {/* </div> */}
                         
                 </DivFornecedor>
                 
