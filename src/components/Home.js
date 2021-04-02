@@ -1,9 +1,10 @@
 import React from 'react'
 import axios from 'axios'
 import styled from 'styled-components'
-import Button from '@material-ui/core/Button';
+import Button from '@material-ui/core/Button'
 import busca from '../components/img/pesquisa.svg'
 import servico from '../components/img/serviço.svg'
+import bananinha from '../banner.png'
 // import consumidor from './imagens/consumidor.jpeg'
 // import fornecedor from './imagens/fornecedor.jpeg'
 
@@ -12,13 +13,13 @@ const Container = styled.div `
     display:flex;
     justify-content:center;
     flex-direction:column;
-    padding-top:12vh;
-    
+    /* padding-top:4vh; */
 `
 const Banner = styled.div `
     display: flex;
-    height: 400px;
-    background-color: #3a7fff;
+    height: 600px;
+    width: 100vw;
+    background-image:url(${bananinha});
 `
 const DivQuemSomos = styled.div `
     display:flex;
@@ -204,7 +205,8 @@ export default class Home extends React.Component{
         return(
 
             <Container>
-                <Banner> </Banner>
+                {/* <Banner><img src={bananinha}/> </Banner >  */}
+                <Banner></Banner>
 
                 <DivQuemSomos>
                     <TitloTexto>Quem Somos</TitloTexto>
