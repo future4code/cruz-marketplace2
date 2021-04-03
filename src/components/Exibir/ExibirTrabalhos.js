@@ -16,6 +16,9 @@ import InputLabel from '@material-ui/core/InputLabel';
 import { createMuiTheme, withStyles, ThemeProvider } from '@material-ui/core/styles';
 import { green, purple, blue } from '@material-ui/core/colors';
 import Trabalho from './Trabalho'
+import Header from '../Base/Header'
+import Footer from '../Base/Footer'
+
 
 export default class ExibirTrabalhos extends React.Component {
 
@@ -30,10 +33,17 @@ export default class ExibirTrabalhos extends React.Component {
         
     return (
 
-
-      <Trabalho
-         
-      />
+      <div>
+        <Header 
+				funcaoSobre={this.props.funcaoSobre} 
+				funcaoCriar={this.props.funcaoCriar} 
+				funcaoExibir={this.props.funcaoExibir} 
+        />
+        <Trabalho
+           
+        />
+        <Footer />
+      </div>
 
 
 

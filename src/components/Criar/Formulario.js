@@ -176,7 +176,11 @@ export default class Formulario extends React.Component{
     render(){
         return(
             <div>
-                <Header />
+                <Header 
+                    funcaoSobre={this.props.funcaoSobre} 
+                    funcaoCriar={this.props.funcaoCriar}
+                    funcaoExibir={this.props.funcaoExibir} 
+                />
 
             <BaseContainer>
 
