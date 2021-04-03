@@ -24,7 +24,7 @@ ________________________________________________________________________________
 2. Crie o anúncio com o serviço prestado para que possam resolver o seu problema
 3. Escolha o anúncio que você deseja resolver o problema.
 
-![ Alt text](gif_marketplace. gif) / ! [](gif_marketplace. gif)
+![ Alt text](gif_marketplace. gif) 
 
 __________________________________________________________________________________________________________________________________________________________________
 
