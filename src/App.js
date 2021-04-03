@@ -23,26 +23,51 @@ export default class App extends React.Component{
 		page: 'home',
 	}
 	
-	//   changePage = () => {
-	// 	if (this.state.page === "home") {
-	// 	  this.setState({ page: "home" });
-	// 	} else if (this.state.page === "formulario") {
-	// 	  this.setState({ page: "formulario" });
-	// 	} else if (this.state.page === "exibir") {
-	// 		this.setState({ page: "exibir" });
-	// 	} else {
-	// 		this.setState({ page: "home" });
-	// 	}
-	//   };
+	  changePage = () => {
+		if (this.state.page === "home") {
+		  this.setState({ page: "home" });
+		} else if (this.state.page === "formulario") {
+		  this.setState({ page: "formulario" });
+		} else if (this.state.page === "exibir") {
+			this.setState({ page: "exibir" });
+		} else {
+			this.setState({ page: "home" });
+		}
+	  };
 	
+	  	changeHome = () => {
+			this.setState({ page: "home" });
+		}
+
+		changeCriar = () => {
+			this.setState({ page: "formulario" });
+		}
+
+		changeExibir = () => {
+			this.setState({ page: "exibir" });
+		}
+
+
 	  renderPage = () => {
 		switch (this.state.page) {
 		  case "home":
-			return <Home /> ;
+			return <Home 
+				funcaoSobre={this.changeHome} 
+				funcaoCriar={this.changeCriar} 
+				funcaoExibir={this.changeExibir} 
+			/> ;
 		  case "formulario":
-			return <Formulario />;
+			return <Formulario 
+			funcaoSobre={this.changeHome} 
+			funcaoCriar={this.changeCriar} 
+			funcaoExibir={this.changeExibir} 
+		/>;
 		case "exibir":
-			return <ExibirTrabalhos />	
+			return <ExibirTrabalhos 
+			funcaoSobre={this.changeHome} 
+			funcaoCriar={this.changeCriar} 
+			funcaoExibir={this.changeExibir} 
+		/>	
 		  default:
 			return <Home /> ;
 		}
@@ -58,8 +83,6 @@ export default class App extends React.Component{
 	// 	default:
 	// 		return  <Home /> 
 	// }
-
-
 
 	render(){
 		return(

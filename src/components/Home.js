@@ -207,7 +207,12 @@ export default class Home extends React.Component{
         return(
 
             <Container>
-                <Header />
+                <Header 
+				funcaoSobre={this.props.funcaoSobre} 
+				funcaoCriar={this.props.funcaoCriar} 
+				funcaoExibir={this.props.funcaoExibir} 
+                />
+
                 {/* <Banner><img src={bananinha}/> </Banner >  */}
                 <Banner></Banner>
 
@@ -232,7 +237,10 @@ export default class Home extends React.Component{
                                 Primeiro faça seu pedido e receba as indicações de acordo com o que você procura.
                                 Combine diretamente com os profissionais e faça sua escolha. 
                             </TextoDivPequeno>
-                                <Button style={{maxHeight: '50px', marginTop: '50px', backgroundColor: '#16c153'}} variant="contained" color="primary" size="large"> Sou Consumidor </Button> 
+                                <Button style={{maxHeight: '50px', marginTop: '50px', backgroundColor: '#16c153'}} 
+                                variant="contained" color="primary" size="large"
+                                onClick={this.props.funcaoExibir}
+                                > Sou Cliente </Button> 
                         </div> 
                         {/* <ImgConsumidor> */}
                                 <ImgConsumidor src={busca}/>
@@ -244,14 +252,17 @@ export default class Home extends React.Component{
                 <DivFornecedor>
 
                     <DivTeste>
-                        <TitloTexto>Se você é um profissional?</TitloTexto>
+                        <TitloTexto>Você é um profissional?</TitloTexto>
                             <TextoDivPequeno>Conectamos você com muito mais clientes. 
                                 Nossa plataforma te oferece toda facilidade na hora de combinar um serviço. 
                                 Temos uma equipe pronta para te atender e divulgar seu trabalho.
                                 Pagamento garantido de forma rápida e segura independente da forma 
                                 de pagamento do cliente.Tudo com selo de qualidade <span>FUTURE NINJAS 2</span> que oferece muito mais credibilidade para o seu perfil.
                             </TextoDivPequeno>
-                                <Button style={{maxHeight: '50px', marginTop: '50px', backgroundColor: '#16c153'}} variant="contained"  color="primary" size="large" > Sou fornecedor </Button> 
+                                <Button style={{maxHeight: '50px', marginTop: '50px', 
+                                backgroundColor: '#16c153'}} variant="contained"  color="primary" size="large" 
+                                onClick={this.props.funcaoCriar}
+                                > Sou fornecedor </Button> 
                     </DivTeste>
                         {/* <div> */}
                             <ImgFornecedor src={servico}/>

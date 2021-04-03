@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default function ButtonAppBar() {
+export default function ButtonAppBar(props) {
     const classes = useStyles();
 
     return (
@@ -31,9 +31,16 @@ export default function ButtonAppBar() {
             <img src={logo} alt="Logo Future Ninjas" style={{width:'300px'}} className={classes.logo}/>
                 <Typography variant="h6" className={classes.title}>
                 </Typography>
-                    <Button color="inherit">Sobre</Button>
-                    <Button color="inherit">Ver Anúncios</Button>
-                    <Button color="inherit">Criar Anúncio</Button>
+                    <Button 
+                        onClick={props.funcaoSobre} 
+                        color="inherit">Sobre</Button>
+                    <Button 
+                        onClick={props.funcaoExibir} 
+                        color="inherit">Ver Anúncios</Button>
+                    <Button 
+                        color="inherit"
+                        onClick={props.funcaoCriar} 
+                        >Criar Anúncio</Button>
             </Toolbar>
         </AppBar>
     </div>

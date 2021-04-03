@@ -172,7 +172,7 @@ export default class Trabalho extends React.Component {
   }
 
   onClickDetalhes = (job) => {
-    alert(`Você pediu mais detalhes do: ${job.title}`)
+    alert(`Você contratou o serviço: ${job.title}`)
     this.setState({ telaDetalhada : true})
 
     return (
@@ -235,7 +235,7 @@ export default class Trabalho extends React.Component {
 
       <BaseContainer>
         <Title>Pesquisar Anúncios</Title>
-        <FormularioContainer>
+        <FormularioContainer style={{ marginTop:'50px' }}>
             <TextField 
               type='text' 
               size={100} 
@@ -274,13 +274,13 @@ export default class Trabalho extends React.Component {
         </FormularioContainer>
 
 
-        {this.state.telaDetalhada === false ? <div style={{ marginTop: '30px', }}>Clique em DETALHES, para ver os detalhes do Serviço</div> : (
+        {/* {this.state.telaDetalhada === false ? <div style={{ marginTop: '30px', }}>Clique em DETALHES, para ver os detalhes do Serviço</div> : (
             <div>
                 Detalhes 
                 {/* {componenteDetalhes} */}
 
-            </div>        
-        )}
+            {/* </div>          */}
+        {/* // )} */}
 
         <div className='exibir-cartoes'>
           
@@ -298,7 +298,7 @@ export default class Trabalho extends React.Component {
                       cartaoDescricao={job.description}
                       cartaoMetodo={job.paymentMethods} 
                       cartaoPrazo={job.dueDate}
-                      textoBotao={'DETALHES'}
+                      textoBotao={'CONTRATAR'}
                       funcaoBotao={()=> { this.onClickDetalhes(job) }}
                     >
                         {/* <Button onClick={this.props.funcaoBotao} color="primary" size="large" style={{maxHeight: '50px', marginTop: '50px', backgroundColor: '#16c153', marginBottom: '50px', color: 'white'}} variant="contained" >DETALHES</Button> */}
