@@ -1,68 +1,67 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![Banner_GITHUB_Site (1)](https://user-images.githubusercontent.com/52434685/113456077-a67c7b80-93e2-11eb-8233-a74953cf4a81.png)
 
-## Available Scripts
 
-In the project directory, you can run:
 
-### `npm start`
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### FutureNinjas 2
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+Link da API: https://documenter.getpostman.com/view/9133542/TVzVgvQL
 
-### `npm test`
+Desenvolvedores:  
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Amanda Lentez  
+- André Luiz Santolin  
+- Fayra Miranda  
+- Luciana Monteiro  
+- Marcos Maia  
+- Nathalia Mesquita da Silva Cardoso  
 
-### `npm run build`
+__________________________________________________________________________________________________________________________________________________________________
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+#### Primeiros passos
+1. Acesse nosso site em: http://future-ninja-cruz-v1.surge.sh/
+;
+2. Crie o anúncio com o serviço prestado para que possam resolver o seu problema
+3. Escolha o anúncio que você deseja resolver o problema.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+![ Alt text](https://github.com/future4code/cruz-marketplace2/blob/master/gif_marketplace.gif) 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+__________________________________________________________________________________________________________________________________________________________________
 
-### `npm run eject`
+#### Em construção 
+Para melhor experiência, acesse nosso site no computador pois estamos trabalhando para deixá-lo adaptado aos seus outros dispositivos 😃
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+__________________________________________________________________________________________________________________________________________________________________
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Para você Dev 💻 <br>
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+#### Objetivos do Projeto
+Criar uma marketplace usando os recursos de React aprendido em aula. No projeto, deve conter as seguintes funcionalidades:
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+-Home
+- ✔️ Renderização condicional para a página de criar anúncio;  
+- ✔️ Renderização condicional para a página de visualizar anúncio;  
 
-## Learn More
+- Funcionalidades  
+- ✔️ Duas áreas separadas no site, uma destinada a criação das ofertas de trabalho e outra destinada a busca dessas ofertas.   
+- ✔️ Na parte de busca o usuário deve ser capaz de ver mais detalhes da oferta e se candidatar a ela;  
+- ✔️ Toda oferta de trabalho deve conter, no mínimo, os seguintes campos:  
+        - Título  
+        - Descrição  
+        - Valor da remuneração  
+        - Método(s) de pagamento oferecidos  
+        - Prazo  
+- ✔️Na listagem de trabalhos o usuário deve ser capaz:  
+        - ✔️ De filtrar por:  
+            - Valor mínimo e máximo 
+            -  Título ou descrição  
+        - ✔️  De ordenar por: 
+            - Título 
+            - Valor da remuneração 
+            - Prazo  
+_________________________________________________________________________________________________________________________________________________________________
+### Primeiros passos
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+- Clone o repositório;
+- Dê um yarn install / npm install;
+- Acesse o nosso código
